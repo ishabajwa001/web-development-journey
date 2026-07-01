@@ -1,16 +1,17 @@
 # JavaScript Variables & Data Types
 
-This repository contains my notes and practice code for learning JavaScript variables, data types, variable naming rules, comments, and console output.
+This repository contains my notes and practice code for learning JavaScript variables, data types, objects, variable naming rules, comments, and console output.
 
 ---
 
 ## Files
 
-| File                  | Description                                       |
-| --------------------- | ------------------------------------------------- |
-| `variable.js`         | Demonstrates JavaScript data types with examples. |
-| `variable-rules.js`   | Covers variable naming rules and best practices.  |
-| `without_variable.js` | Demonstrates comments and `console.log()` usage.  |
+| File                  | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+| `variable.js`         | Demonstrates JavaScript data types with examples.                  |
+| `object-type.js`      | Demonstrates creating objects and accessing object properties.      |
+| `variable-rules.js`   | Covers variable naming rules and best practices.                   |
+| `without_variable.js` | Demonstrates comments and `console.log()` usage.                   |
 
 ---
 
@@ -18,14 +19,15 @@ This repository contains my notes and practice code for learning JavaScript vari
 
 JavaScript provides several built-in data types.
 
-| Data Type        | Description                          | Example                |
-| ---------------- | ------------------------------------ | ---------------------- |
-| Number (Integer) | Whole numbers                        | `let x = 10;`          |
-| Number (Float)   | Decimal numbers                      | `let y = 4.555;`       |
-| String           | Text enclosed in quotes or backticks | `let words = "Hello";` |
-| Boolean          | `true` or `false`                    | `console.log(true);`   |
-| `undefined`      | Declared but not assigned a value    | `let age;`             |
-| `null`           | Intentionally empty value            | `let name = null;`     |
+| Data Type        | Description                           | Example                         |
+| ---------------- | ------------------------------------- | ------------------------------- |
+| Number (Integer) | Whole numbers                         | `let x = 10;`                   |
+| Number (Float)   | Decimal numbers                       | `let y = 4.555;`                |
+| String           | Text enclosed in quotes or backticks  | `let words = "Hello";`          |
+| Boolean          | `true` or `false`                     | `console.log(true);`            |
+| `undefined`      | Declared but not assigned a value     | `let age;`                      |
+| `null`           | Intentionally empty value             | `let name = null;`              |
+| Object           | Collection of key-value pairs         | `let pet = { name: "Fluffy" };` |
 
 ### Example
 
@@ -54,6 +56,48 @@ console.log(name);
 ```
 
 > Always declare variables using `let`, `const`, or `var`. Avoid creating variables without a declaration keyword.
+
+---
+
+## Objects (`object-type.js`)
+
+Objects store multiple related values inside a single variable using **key-value pairs**.
+
+### Example
+
+```javascript
+let pet = {
+    name: "Fluffy",
+    type: "Cat",
+    age: 3
+};
+
+console.log(pet);
+
+console.log(pet.name);
+
+console.log(pet.age);
+
+console.log(pet.type);
+```
+
+### Object Structure
+
+| Property | Value |
+| -------- | ----- |
+| `name` | `"Fluffy"` |
+| `type` | `"Cat"` |
+| `age` | `3` |
+
+### Accessing Properties
+
+```javascript
+console.log(pet.name); // Fluffy
+console.log(pet.age);  // 3
+console.log(pet.type); // Cat
+```
+
+Dot notation (`object.property`) is the most common way to access object properties.
 
 ---
 
@@ -118,7 +162,7 @@ let height = "5'2";
 */
 ```
 
-### console.log()
+### `console.log()`
 
 ```javascript
 console.log(5);
@@ -136,6 +180,7 @@ console.log();
 
 ```bash
 node variable.js
+node object-type.js
 node variable-rules.js
 node without_variable.js
 ```
@@ -144,10 +189,12 @@ node without_variable.js
 
 ## Key Takeaways
 
-* Use `let` for variables whose values can change.
-* Use `const` for values that remain constant.
-* Avoid using `var` in modern JavaScript.
-* Variable names must begin with a letter, `_`, or `$`.
-* Use descriptive names and follow the `camelCase` convention.
-* Strings can be written using double quotes, single quotes, or backticks.
-* `console.log()` is useful for displaying output and debugging code.
+- Use `let` for variables whose values can change.
+- Use `const` for values that remain constant.
+- Avoid using `var` in modern JavaScript.
+- Variable names must begin with a letter, `_`, or `$`.
+- Use descriptive names and follow the `camelCase` convention.
+- Strings can be written using double quotes, single quotes, or backticks.
+- Objects store related information using key-value pairs.
+- Access object properties using dot notation (`object.property`).
+- `console.log()` is useful for displaying output and debugging code.
