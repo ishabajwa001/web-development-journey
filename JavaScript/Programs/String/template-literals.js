@@ -13,6 +13,7 @@ Director : ${director}
 Release Year : ${releaseYear}
 Rating : ${rating}/${highestRating}`;
 
+//String Interpolation using template literals
 //Display title and movie card using template literals
 //Also use the expression to calculate the rating percentage
 console.log(`
