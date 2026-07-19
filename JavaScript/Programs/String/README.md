@@ -1,17 +1,19 @@
 # JavaScript Strings
 
-A beginner-friendly JavaScript program covering strings, string immutability, string concatenation, escape sequences, template literals, string interpolation, and the `indexOf()` method.
+A beginner-friendly JavaScript program covering strings, string immutability, string concatenation, escape sequences, template literals, string interpolation, string searching, case conversion, and whitespace removal.
 
 ## Files
 
-| File                   | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
-| `string.js`            | Demonstrates strings, reassignment, `const`, and string immutability  |
-| `concatenation.js`     | Demonstrates string concatenation using `+`, `+=`, and `concat()`     |
-| `Escape-sequences.js`  | Demonstrates escape sequences such as `\t`, `\n`, `\"`, and `\\`      |
-| `index.js`             | Demonstrates basic string concepts and output                         |
-| `indexOf.js`           | Demonstrates finding the position of a substring using `indexOf()`    |
-| `template-literals.js` | Demonstrates template literals, string interpolation, and expressions |
+| File                   | Description                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| `string.js`            | Demonstrates strings, reassignment, `const`, and string immutability            |
+| `concatenation.js`     | Demonstrates string concatenation using `+`, `+=`, and `concat()`               |
+| `Escape-sequences.js`  | Demonstrates escape sequences such as `\t`, `\n`, `\"`, and `\\`                |
+| `index.js`             | Demonstrates basic string concepts and output                                   |
+| `indexOf.js`           | Demonstrates finding the position of a substring using `indexOf()`              |
+| `template-literals.js` | Demonstrates template literals, string interpolation, and expressions           |
+| `Case-conversion.js`   | Demonstrates converting strings to uppercase and lowercase                      |
+| `trim-whitespaces.js`  | Demonstrates removing whitespace using `trim()`, `trimStart()`, and `trimEnd()` |
 
 ---
 
@@ -219,6 +221,110 @@ This expression calculates the movie rating percentage.
 
 ---
 
+### 7. Case Conversion (`Case-conversion.js`)
+
+JavaScript provides methods to convert strings into uppercase or lowercase.
+
+#### `toUpperCase()`
+
+The `toUpperCase()` method converts all alphabetic characters in a string to uppercase.
+
+```javascript
+let message = "Every Great Programmer Starts With One Line Of Code!";
+
+let mesUpperCase = message.toUpperCase();
+
+console.log(mesUpperCase);
+```
+
+#### `toLowerCase()`
+
+The `toLowerCase()` method converts all alphabetic characters in a string to lowercase.
+
+```javascript
+let mesLowerCase = message.toLowerCase();
+
+console.log(mesLowerCase);
+```
+
+#### Important
+
+Both methods return a **new string** because JavaScript strings are immutable.
+
+```javascript
+let message = "Hello";
+
+let upperMessage = message.toUpperCase();
+
+console.log(message);
+console.log(upperMessage);
+```
+
+The original `message` remains unchanged.
+
+**Note:** `toUpperCase()` and `toLowerCase()` are string methods, so they must be called using the string or a string variable.
+
+```javascript
+message.toUpperCase();
+message.toLowerCase();
+```
+
+---
+
+### 8. Removing Whitespace (`trim-whitespaces.js`)
+
+JavaScript provides methods to remove whitespace from the beginning and end of a string.
+
+Whitespace can include:
+
+* Spaces
+* Tabs
+* New line characters
+
+#### `trim()`
+
+The `trim()` method removes whitespace from **both the beginning and the end** of a string.
+
+```javascript
+let username = "   zyn090   ";
+
+let trimmedUsername = username.trim();
+
+console.log(trimmedUsername);
+```
+
+#### `trimStart()`
+
+The `trimStart()` method removes whitespace from the **beginning** of a string.
+
+```javascript
+let startTrimmedUsername = username.trimStart();
+```
+
+#### `trimEnd()`
+
+The `trimEnd()` method removes whitespace from the **end** of a string.
+
+```javascript
+let endTrimmedUsername = username.trimEnd();
+```
+
+#### Whitespace from Escape Sequences
+
+These methods also work with whitespace created using escape sequences such as `\t` and `\n`.
+
+```javascript
+let title = "\t\t\t JavaScript \n";
+
+let trimmedTitle = title.trim();
+let trimmedStartTitle = title.trimStart();
+let trimmedEndTitle = title.trimEnd();
+```
+
+**Important:** These methods do not modify the original string. They return a new string because JavaScript strings are immutable.
+
+---
+
 ## How to Run
 
 Run any JavaScript file using Node.js:
@@ -243,6 +349,14 @@ node indexOf.js
 node template-literals.js
 ```
 
+```bash
+node Case-conversion.js
+```
+
+```bash
+node trim-whitespaces.js
+```
+
 ---
 
 ## Key Takeaways
@@ -254,7 +368,7 @@ node template-literals.js
 * The `+` operator concatenates strings.
 * The `+=` operator appends text to an existing string.
 * The `concat()` method joins multiple strings.
-* Escape sequences add special formatting and characters to strings.
+* Escape sequences add special formatting and characters.
 * `\t` creates a tab.
 * `\n` creates a new line.
 * `\\` represents a backslash.
@@ -263,4 +377,10 @@ node template-literals.js
 * `-1` means a substring was not found.
 * Template literals use backticks.
 * `${}` is used for string interpolation and expressions.
+* `toUpperCase()` converts a string to uppercase.
+* `toLowerCase()` converts a string to lowercase.
+* `trim()` removes whitespace from both ends of a string.
+* `trimStart()` removes whitespace from the beginning.
+* `trimEnd()` removes whitespace from the end.
+* String methods return new strings because strings are immutable.
 * JavaScript variable names should follow camelCase naming conventions.
