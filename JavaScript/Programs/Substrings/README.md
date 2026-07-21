@@ -1,6 +1,6 @@
-# JavaScript String Methods
+# JavaScript String Modification Methods
 
-A beginner-friendly collection of JavaScript programs demonstrating commonly used JavaScript string methods.
+A beginner-friendly JavaScript program demonstrating commonly used string modification methods such as `replace()` and `repeat()`, along with string searching and extraction methods like `includes()` and `slice()`.
 
 ## Files
 
@@ -19,17 +19,16 @@ A beginner-friendly collection of JavaScript programs demonstrating commonly use
 * `String.prototype.slice()`
 * `String.prototype.replace()`
 * `String.prototype.repeat()`
-* Substring searching
+* String searching
 * String extraction
 * String replacement
 * String repetition
 * Case-sensitive matching
 * Positive and negative indexes
-* String interpolation
 * Template literals
+* String interpolation
 * Unicode emojis
 * `ReferenceError`
-* `TypeError`
 * `RangeError`
 
 ---
@@ -50,12 +49,12 @@ or
 string.includes(searchValue, startIndex);
 ```
 
-## Returns
+### Returns
 
-* `true` if the substring is found.
-* `false` if the substring is not found.
+* `true` if the substring exists.
+* `false` if the substring does not exist.
 
-## Example
+### Example
 
 ```js
 let sentence = "JavaScript is a powerful language.";
@@ -69,46 +68,25 @@ Output
 true
 ```
 
-## Case Sensitivity
-
-`includes()` is **case-sensitive**.
+### Case Sensitivity
 
 ```js
-let sentence = "The Ocean is full of amazing marine life.";
-
-console.log(sentence.includes("Ocean"));
-console.log(sentence.includes("ocean"));
+sentence.includes("Ocean"); // true
+sentence.includes("ocean"); // false
 ```
 
-Output
-
-```text
-true
-false
-```
-
-## Starting Index
-
-The second argument specifies where the search begins.
+### Starting Index
 
 ```js
-let sentence = "Cybersecurity protects digital systems.";
-
-console.log(sentence.includes("digital", 23));
-console.log(sentence.includes("digital", 24));
+sentence.includes("digital", 23);
 ```
 
-Output
+The search begins from index `23`.
 
-```text
-true
-false
-```
-
-## No Argument
+### No Argument
 
 ```js
-console.log(sentence.includes());
+sentence.includes();
 ```
 
 JavaScript searches for the string `"undefined"`.
@@ -125,9 +103,9 @@ The `slice()` method extracts part of a string and returns it as a new string.
 string.slice(startIndex, endIndex);
 ```
 
-The ending index is **not included**.
+The ending index is **excluded**.
 
-## Example
+### Example
 
 ```js
 let language = "JavaScript";
@@ -141,14 +119,10 @@ Output
 Java
 ```
 
-## Negative Indexes
-
-Negative indexes count from the end of the string.
+### Negative Indexes
 
 ```js
-let language = "JavaScript";
-
-console.log(language.slice(-6));
+language.slice(-6);
 ```
 
 Output
@@ -157,18 +131,19 @@ Output
 Script
 ```
 
-## Important Rules
+### Rules
 
 * The starting index is included.
 * The ending index is excluded.
 * Omitting the ending index slices until the end.
+* Negative indexes count from the end of the string.
 * If the starting index is greater than the ending index, an empty string is returned.
 
 ---
 
 # `replace()` Method
 
-The `replace()` method replaces part of a string and returns a new string.
+The `replace()` method searches for a specified value and returns a new string with the first matching occurrence replaced.
 
 ## Syntax
 
@@ -176,7 +151,15 @@ The `replace()` method replaces part of a string and returns a new string.
 string.replace(searchValue, replacement);
 ```
 
-## Example
+### Returns
+
+A **new string**.
+
+The original string is **not modified**.
+
+---
+
+## Changing Text
 
 ```js
 let message = "Hello, Mathew";
@@ -190,13 +173,207 @@ Output
 Hello, John
 ```
 
-## Common Uses
+---
 
-* Correct spelling mistakes
-* Update usernames
-* Modify URLs
-* Replace dates
-* Format text
+## Correcting a Typo
+
+```js
+let sentence = "I love Javsript";
+
+console.log(sentence.replace("Javsript", "JavaScript"));
+```
+
+Output
+
+```text
+I love JavaScript
+```
+
+---
+
+## Updating a URL
+
+```js
+let url = "https://example.com/users/john123";
+
+console.log(url.replace("john123", "jonny010"));
+```
+
+Output
+
+```text
+https://example.com/users/jonny010
+```
+
+---
+
+## Replacing the First Occurrence
+
+```js
+let date = "21-07-2026";
+
+console.log(date.replace("-", "/"));
+```
+
+Output
+
+```text
+21/07-2026
+```
+
+Only the first occurrence is replaced.
+
+---
+
+## Case Sensitivity
+
+```js
+let language = "JavaScript is fun";
+
+console.log(language.replace("Javascript", "Python"));
+```
+
+Output
+
+```text
+JavaScript is fun
+```
+
+Nothing changes because `"Javascript"` and `"JavaScript"` are different strings.
+
+---
+
+## Multiple Occurrences
+
+```js
+let animals = "cat cat cat";
+
+console.log(animals.replace("cat", "dog"));
+```
+
+Output
+
+```text
+dog cat cat
+```
+
+Only the **first** occurrence is replaced.
+
+---
+
+## Replacing Characters
+
+```js
+let username = "bill gates";
+
+console.log(username.replace(" ", "_"));
+```
+
+Output
+
+```text
+bill_gates
+```
+
+---
+
+## Password Masking
+
+```js
+let password = "xyz123";
+
+console.log(password.replace(password, "******"));
+```
+
+Output
+
+```text
+******
+```
+
+---
+
+## Updating a Shopping List
+
+```js
+let shoppingList = "Milk, Juice, Bread";
+
+console.log(shoppingList.replace("Juice", "Eggs"));
+```
+
+Output
+
+```text
+Milk, Eggs, Bread
+```
+
+---
+
+## Updating Multiple Values
+
+```js
+let profile = "Name : Mathew | Age : 20 | City : London";
+
+profile = profile.replace("Mathew", "Mathew Perry");
+profile = profile.replace("20", "24");
+profile = profile.replace("London", "Tokyo");
+```
+
+Output
+
+```text
+Name : Mathew Perry | Age : 24 | City : Tokyo
+```
+
+---
+
+## Empty Search String
+
+```js
+console.log("hello".replace("", "@"));
+```
+
+Output
+
+```text
+@hello
+```
+
+An empty string matches the beginning of the string.
+
+---
+
+## Missing Replacement
+
+```js
+let phrase = "I love Coding";
+
+console.log(phrase.replace("Coding"));
+```
+
+Output
+
+```text
+I love undefined
+```
+
+The replacement value becomes `"undefined"` when omitted.
+
+---
+
+## No Arguments
+
+```js
+console.log(phrase.replace());
+```
+
+Output
+
+```text
+I love Coding
+```
+
+Nothing is replaced because no search value is provided.
 
 ---
 
@@ -210,7 +387,7 @@ The `repeat()` method creates a new string by repeating the original string a sp
 string.repeat(count);
 ```
 
-## Basic Example
+### Basic Example
 
 ```js
 console.log("*".repeat(5));
@@ -222,10 +399,9 @@ Output
 *****
 ```
 
-## Player Profile Example
+### Player Profile Example
 
 ```js
-let playerName = "Shadow Hunter";
 let level = 5;
 let health = 3;
 
@@ -240,126 +416,95 @@ Level : ⭐⭐⭐⭐⭐
 Health : 💙💙💙
 ```
 
-## Numeric String
-
-If the count is a numeric string, JavaScript converts it to a number.
+### Numeric String
 
 ```js
-console.log("*".repeat("10"));
+"*".repeat("10");
 ```
 
-Output
+The numeric string `"10"` is converted to the number `10`.
 
-```text
-**********
-```
-
-## String Concatenation
+### String Concatenation
 
 ```js
-console.log("*".repeat("10" + 1));
+"*".repeat("10" + 1);
 ```
 
 `"10" + 1` becomes `"101"` because of string concatenation.
 
-The string is repeated **101 times**.
+The string is repeated **101** times.
 
-## No Argument
+### No Argument
 
 ```js
-console.log("*".repeat());
+"*".repeat();
 ```
 
 Equivalent to:
 
 ```js
-console.log("*".repeat(0));
+"*".repeat(0);
 ```
 
 Returns an empty string.
 
-## Boolean Values
+### Boolean Values
 
 ```js
-console.log("#".repeat(true));
-console.log("#".repeat(false));
-```
-
-Output
-
-```text
-#
-
+"#".repeat(true);
+"#".repeat(false);
 ```
 
 * `true` becomes `1`
 * `false` becomes `0`
 
-## Null
+### Null
 
 ```js
-console.log("#".repeat(null));
+"#".repeat(null);
 ```
 
-`null` becomes `0`, so an empty string is returned.
+`null` becomes `0`.
 
-## Decimal Values
+### Decimal Values
 
 ```js
-console.log("#".repeat(5.9));
+"#".repeat(5.9);
 ```
 
-Output
+Repeats **5** times because the decimal part is discarded.
 
-```text
-#####
-```
-
-The decimal part is discarded.
-
-## NaN
+### NaN
 
 ```js
-console.log("#".repeat(NaN));
+"#".repeat(NaN);
 ```
 
-Behaves like:
+Behaves like `repeat(0)`.
 
-```js
-repeat(0)
-```
-
-Returns an empty string.
-
-## Errors
-
-Negative numbers are not allowed.
+### Errors
 
 ```js
 "#".repeat(-5);
 ```
 
-```text
+```
 RangeError
 ```
-
-Infinity is also invalid.
 
 ```js
 "#".repeat(Infinity);
 ```
 
-```text
+```
 RangeError
 ```
-
-Calling `repeat()` without a string object causes an error.
 
 ```js
 repeat(10);
 ```
 
-```text
+```
 ReferenceError
 ```
 
@@ -381,7 +526,7 @@ or
 Windows + .
 ```
 
-(`Windows` key + semicolon **`;`** or period **`.`**)
+(`Windows` key + semicolon `;` or period `.`)
 
 Then click an emoji or search for one by typing its name.
 
@@ -399,24 +544,42 @@ Output
 💙💙💙
 ```
 
-> Emojis are Unicode characters, so JavaScript treats them like normal strings. You can use them with string methods such as `repeat()`, concatenate them with other strings, and display them in the console or web pages.
+> Emojis are Unicode characters, so JavaScript treats them like normal strings. They can be repeated, concatenated, and displayed just like any other string.
 
 ---
 
 # Error Examples
 
-## ReferenceError
-
 ```js
 slice(3, 8);
+```
+
+```text
+ReferenceError
 ```
 
 ```js
 includes("hello");
 ```
 
+```text
+ReferenceError
+```
+
+```js
+replace("love", "hate");
+```
+
+```text
+ReferenceError
+```
+
 ```js
 repeat(10);
+```
+
+```text
+ReferenceError
 ```
 
 These methods belong to string objects and cannot be called as standalone functions.
@@ -425,12 +588,12 @@ These methods belong to string objects and cannot be called as standalone functi
 
 # Summary
 
-| Method       | Purpose                           | Returns    |
-| ------------ | --------------------------------- | ---------- |
-| `includes()` | Checks whether a substring exists | Boolean    |
-| `slice()`    | Extracts part of a string         | New string |
-| `replace()`  | Replaces part of a string         | New string |
-| `repeat()`   | Repeats a string                  | New string |
+| Method       | Purpose                           | Return Value |
+| ------------ | --------------------------------- | ------------ |
+| `includes()` | Checks whether a substring exists | Boolean      |
+| `slice()`    | Extracts part of a string         | New string   |
+| `replace()`  | Replaces part of a string         | New string   |
+| `repeat()`   | Repeats a string                  | New string   |
 
 ---
 
@@ -441,10 +604,11 @@ These methods belong to string objects and cannot be called as standalone functi
 * `includes()` supports a starting index.
 * `slice()` extracts part of a string.
 * `slice()` supports negative indexes.
-* The ending index in `slice()` is excluded.
 * `replace()` returns a new string without modifying the original string.
+* `replace()` replaces only the first occurrence by default.
+* `replace()` is case-sensitive.
 * `repeat()` creates a new string by repeating the original string.
 * `repeat()` accepts numeric strings and truncates decimal values.
 * `repeat()` throws a `RangeError` for negative values and `Infinity`.
-* JavaScript strings are immutable, so all string methods return new strings instead of modifying the original.
-* Emojis are Unicode characters and can be used just like any other string in JavaScript.
+* JavaScript strings are immutable, so string methods always return new strings instead of modifying the original.
+* Emojis are Unicode characters and work with JavaScript string methods.
